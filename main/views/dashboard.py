@@ -10,11 +10,10 @@ class Dashboard(LoginRequiredMixin, View):
 
     def get(self, request, username):
         user = get_object_or_404(Usuario, username=username)
-        lab_active = Laboratory.objects.filter(is_active=True).values('name_laboratory', 'number_laboratory')
-        form = ScheduleLabForm()
+        lab_active = Laboratory.objects.filter(is_active=True).values('pk','name_laboratory', 'number_laboratory')
         if lab_active:
 
-            context = {'user': user, 'lab_active': lab_active, 'form': form}
+            context = {'user': user, 'lab_active': lab_active}
 
             return render(request, 'dashboard.html', context)
         

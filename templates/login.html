@@ -19,6 +19,13 @@
             <div class="card-login">
                 <h1><b>LOGIN</b></h1>
                 <div class="textfield">
+                    {% if messages %}
+                    {% for message in messages %}
+                    <ul class="messages"></ul>
+                    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
                         <form action="{% url 'login' %}" method="POST">
                             {% csrf_token %}
                             {% for field in form.visible_fields %}
@@ -27,17 +34,9 @@
                                     {{ field }}
                             </div>  
                             {% endfor %}   
+                            <button class="btn-login" type="submit">Login</button>
                         </form>
-                      
-                    <!-- <label for="usuario">Usuário</label> 
-                    <input type="text" name="usuario" placeholder="usuario">
                 </div>
-                <div class="textfield">
-                    <label for="senha">Senha</label>
-                    <input type="password" name="senha" placeholder="senha"> -->
-                </div>
-        
-            </div>
         </div>
     </div>
 </body>

@@ -20,9 +20,17 @@ class UpdateUser(LoginRequiredMixin, View):
         user = Usuario.objects.get(pk=pk)
         form = UserUpdateForm(request.POST, instance=user)
         if form.is_valid():
-            form.save()
-            messages.success(request, 'Atualização realizada com sucesso.')
+            cpf_cnpj = form.cleaned_data['cpf_cnpj']
+            email = form.cleaned_data['email']
+            if Usuario.objects.filter(cpf_cnpj=cpf_cnpj).exists():
+                messages.error(request, 'CPF ou CNPJ já existe')
+            elif Usuario.objects.filter(email=email).exists():
+                messages.error(request, 'Email já existe')
+            else:
+                form.save()
+                messages.success(request, 'Atualização realizada com sucesso.')
 
             return redirect('updateuser', pk=pk)
+        messages.error(request, 'erro na atualização do cadastro')
 
         return render(request, self.template_name, {'form': form})

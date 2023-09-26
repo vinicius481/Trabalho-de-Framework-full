@@ -10,4 +10,5 @@ urlpatterns = [
 
 
 handler404 = CustomErrorServer.error_404
+handler403 = CustomErrorServer.error_403
 handler500 = CustomErrorServer.error_500

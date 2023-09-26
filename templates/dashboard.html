@@ -17,18 +17,18 @@
                     <tr>
                         <th>Num Laboratório</th>
                         <th>Nome Laboratório</th>
+                        <th>Agendamento Laboratório</th>
                     </tr>
                 </thead>
                 <tbody>
                         <tr>
                             <td>{{ lab.number_laboratory }}</td>
                             <td>{{ lab.name_laboratory }}</td>
-                            <td>{{ form.as_table }}</td>
-                            <td><button type="submit" style="margin-bottom: 50px;">Agendar</button></td>
+                            <td><button><a href="{% url 'laboratorio:list_lab' lab.pk %}">Agendar</a></button></td>
                             
                         </tr>
                 </tbody>
-            </table>
+            </table><br><br>
             {% endfor %}
         </form>
 </body>
