@@ -33,10 +33,18 @@
                                     <label for="{{ field.id_for_label }}"> {{field.label}} </label>
                                     {{ field }}
                             </div>  
-                            {% endfor %}   
-                            <button class="btn-login" type="submit">Login</button>
+                            {% endfor %}
+                            <div>
+                                <a href= "{% url 'signup' %} "> Cadastra-se </a>
+                            </div>
+                            <div> 
+                                <button class="btn-login" type="submit">Login</button>
+                            </div>
+                           
                         </form>
                 </div>
+
+                
         </div>
     </div>
 </body>

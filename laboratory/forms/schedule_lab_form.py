@@ -23,3 +23,5 @@ class ScheduleLabForm(forms.ModelForm):
             attrs={'class': 'form-control', 'type':'time'}
         )
     )
+
+

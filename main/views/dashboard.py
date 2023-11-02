@@ -17,4 +17,4 @@ class Dashboard(LoginRequiredMixin, View):
 
             return render(request, 'dashboard.html', context)
         
-        
+        return render(request, 'dashboard.html', {'user': user, 'lab_active': []})

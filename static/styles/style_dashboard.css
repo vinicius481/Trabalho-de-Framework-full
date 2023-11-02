@@ -30,6 +30,54 @@
     padding: 0;
   }
 
+  .button_voltar{
+    float: right;
+    margin-right: 2cm;
+    margin-bottom: 1cm;
+    padding: 6px;
+    cursor: pointer;  
+    background: rgb(61, 157, 179);
+    color: #fff;
+    font-size: 14px;  
+    border: 1px solid #fff;   
+    text-shadow: 0 1px 1px #333;
+    border-radius: 5px;
+    
+  }
+
+  .acessar_lab{
+    padding: 2px;
+    cursor: pointer;  
+    background: rgb(61, 157, 179);
+    color: #fff;
+    font-size: 12px;  
+    border: 1px solid #fff;   
+    text-shadow: 0 1px 1px #333;
+    border-radius: 5px;
+    
+  }
+
+.button_logout{
+  float: right;
+  margin-right: 1cm;
+  margin-bottom: 1cm;
+  padding: 6px;
+  cursor: pointer;  
+  background: rgb(61, 157, 179);
+  color: #fff;
+  font-size: 14px;  
+  border: 1px solid #fff;   
+  text-shadow: 0 1px 1px #333;
+  border-radius: 5px;
+  
+}
+
+.bem-vindo{
+    margin-top: 1cm;
+    margin-left: 1cm;
+    
+  }
+
   h1{
     font-size: 48px;
     color: #01015a;
@@ -62,7 +110,7 @@
     background-position: center center;
     background-size: cover;
     max-width: 100%;
-    height: 100%;
+    height: 80%;
     width: 100%;
 
 }

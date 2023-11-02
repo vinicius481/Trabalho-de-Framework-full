@@ -7,6 +7,8 @@
     font-family: 'Inter', sans-serif;
 }
 
+
+
 body{
     width: 100%;
     height: 100vh;
@@ -105,8 +107,8 @@ body{
 
 }
 
-.input-box input{
-    margin:0.8rem 0;
+.input-box button{
+    margin:1.rem 0;
     padding: 0.5rem 1.0rem;
     border: none;
     border-radius: 7px;
