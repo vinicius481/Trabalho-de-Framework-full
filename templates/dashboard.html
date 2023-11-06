@@ -1,12 +1,34 @@
+{% load static %}
 <html>
+
+
 <body>
-    <a href="{% url 'logout' %}">Logout</a><BR><BR>
-    <a href="{% url 'updateuser' pk=user.pk %}">Atualizar</a>
+
+    <head>
+        <meta charset="UTF-8" />
+        <title>Dashboard</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+        <link rel="stylesheet" type="text/css" href="{% static 'styles/style_dashboard.css'%}">
+      </head>
+      <header> 
+        <div class="bem-vindo">
+        <a href="{% url 'index' %}"><button class="button_voltar" >Voltar</button></a>
+        <a href="{% url 'logout' %}"> <button class="button_logout">Logout</button> </a>
+    </div> 
+          
+          
+      </header>
+        <div class="container" >
+          <a class="links" id="paracadastro"></a>
+          <a class="links" id="paralogin"></a>
+          
+           
+     <!--  </div>
     {% if user.is_authenticated %}
         <h1>Bem-vindo, {{ user.username }}!</h1>
     {% else %}
         {% url login %}
-    {% endif %}
+    {% endif %} -->
 
         <h1>Faça sua Reserva de Laboratório</h1>
         <form method="post">

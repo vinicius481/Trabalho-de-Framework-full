@@ -1,16 +1,19 @@
+{% load static%}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>atualizar usuario</title>
+    <link rel="stylesheet" href="{% static 'styles/style_edicao_usuario.css'%}">
+    <title>Edição de Usuário</title>
 </head>
+
 <body>
-    <a href="{% url 'logout' %}">Sair</a><br><br>
-
-    <a href="{% url 'dashboard' username=user %}">Perfil</a>
-
-    <h2>Atualizar Cadastro</h2>
+    <div class="container">
+        <div class="form-image">
+            <img src="{% static 'assets/imagens/imagem_edicao_usuario.jpg' %}">
+        </div>
     {% if messages %}
         <div class="messages">
             {% for message in messages %}
@@ -18,18 +21,27 @@
             {% endfor %}
         </div>
     {% endif %}
-    <form method="post">
+
+    <form action="{% url 'updateuser' pk=user.pk %}", method="post">
         {% csrf_token %}
-        {{ form.username }}<br><br>
-        {{ form.first_name }}<br><br>
-        {{ form.last_name }}<br><br>
-        {{ form.email }}<br><br>
-        <label>Status</label>
-        {{ form.is_active }}<br><br>
-        {{ form.user}}<br><br>
-        {{ form.cpf_cnpj }}<br><br>
-        {{ form.phone }}<br><br>
-        <button type="submit">Salvar Alterações</button>
+        <div class="form-header">
+            <div class="title">
+                <h1> Edição de Usuário</h1>
+            </div>
+            <div class="login-button"></div>
+        </div>
+
+        {% for field in form.visible_fields %}
+            <div class="input-group">
+                <div class="input-box">
+                    <label for="{{ field.id_for_label }}"> {{field.label}} </label>
+                    {{ field }}
+                </div>  
+            </div>
+        {% endfor %}
+                            
+        <button class="button_salvar_alteracoes", type="submit">Salvar Alterações</button> 
+        <a href="{% url 'index' %}"><button class="button_salvar_alteracoes" >Voltar</button></a>
     </form>
 </body>
 </html>
