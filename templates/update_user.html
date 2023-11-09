@@ -6,7 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static 'styles/style_edicao_usuario.css'%}">
-    <title>Edição de Usuário</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+       
 </head>
 
 <body>
@@ -21,27 +22,30 @@
             {% endfor %}
         </div>
     {% endif %}
-
-    <form action="{% url 'updateuser' pk=user.pk %}", method="post">
-        {% csrf_token %}
-        <div class="form-header">
-            <div class="title">
-                <h1> Edição de Usuário</h1>
+    
+    <div class="form">
+        <form action="{% url 'updateuser' pk=user.pk %}", method="post">
+            {% csrf_token %}
+            <div class="form-header">
+                <div class="title">
+                    <h1> Edição de Usuário</h1>
+                </div>
+                <div class="login-button"></div>
             </div>
-            <div class="login-button"></div>
-        </div>
 
-        {% for field in form.visible_fields %}
-            <div class="input-group">
-                <div class="input-box">
-                    <label for="{{ field.id_for_label }}"> {{field.label}} </label>
+            <div class="row">
+                {% for field in form.visible_fields %}
+                <div class="col-12" style="margin-bottom: 10px;">
+                    <label for="{{ field.id_for_label }}" style="color:black; margin-bottom: 5px;">{{field.label}}</label>
                     {{ field }}
-                </div>  
+                </div>
+                {% endfor %}
             </div>
-        {% endfor %}
-                            
-        <button class="button_salvar_alteracoes", type="submit">Salvar Alterações</button> 
-        <a href="{% url 'index' %}"><button class="button_salvar_alteracoes" >Voltar</button></a>
-    </form>
+        </form>
+        <div>
+            <button class="button_salvar_alteracoes"  type="submit">Salvar Alterações</button> 
+        
+    </div>             
+        
 </body>
 </html>
