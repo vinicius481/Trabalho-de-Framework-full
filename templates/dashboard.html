@@ -9,10 +9,12 @@
         <title>Dashboard</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
         <link rel="stylesheet" type="text/css" href="{% static 'styles/style_dashboard.css'%}">
-      </head>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+       
+    </head>
       <header> 
         <div class="bem-vindo">
-        <a href="{% url 'index' %}"><button class="button_voltar" >Voltar</button></a>
+        <a href="{% url 'index' %}"><button class="button_voltar" >Home</button></a>
         <a href="{% url 'logout' %}"> <button class="button_logout">Logout</button> </a>
     </div> 
           
@@ -29,29 +31,37 @@
     {% else %}
         {% url login %}
     {% endif %} -->
-
-        <h1>Faça sua Reserva de Laboratório</h1>
-        <form method="post">
-            {% csrf_token %}
-            {% for lab in lab_active %}
-            <table>
-                <thead>
-                    <tr>
-                        <th>Num Laboratório</th>
-                        <th>Nome Laboratório</th>
-                        <th>Agendamento Laboratório</th>
-                    </tr>
-                </thead>
-                <tbody>
+    <div class="content">
+        <div id="login">
+            <h1>Faça sua Reserva de Laboratório</h1>
+            <form method="post">
+                {% csrf_token %}
+                {% for lab in lab_active %}
+                <table class="table table-hover">
+                    <thead>
                         <tr>
-                            <td>{{ lab.number_laboratory }}</td>
-                            <td>{{ lab.name_laboratory }}</td>
-                            <td><button><a href="{% url 'laboratorio:list_lab' lab.pk %}">Agendar</a></button></td>
-                            
+                            <th>Num Laboratório</th>
+                            <th>Nome Laboratório</th>
+                            <th>Agendamento Laboratório</th>
                         </tr>
-                </tbody>
-            </table><br><br>
-            {% endfor %}
-        </form>
+                    </thead>
+                    <tbody>
+                            <tr>
+                                <td>{{ lab.number_laboratory }}</td>
+                                <td>{{ lab.name_laboratory }}</td>
+
+                                <a href="{% url 'laboratorio:list_lab' lab.pk %}">
+                                <td>
+                                     <a href="{% url 'laboratorio:list_lab' lab.pk %}">Agendar</a>
+                                    
+                                </td>
+                                </a>
+                            </tr>
+                    </tbody>
+                </table><br><br>
+                {% endfor %}
+            </form>
+        </div>
+    </div>
 </body>
 </html>
