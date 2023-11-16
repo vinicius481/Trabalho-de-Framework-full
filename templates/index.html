@@ -37,9 +37,9 @@
             <section class="menu-lateral">
                 <nav class="menu-lateral__navegacao">
                     <a href="{% url 'index' %}"><img src="{% static 'assets/ícones/1x/Home - ativo.png' %}"> Home</a>
-                    <a href="{% url 'dashboard' username=user %}"><img src="{% static 'assets/ícones/1x/Mais vistas - inativo.png' %}">Dashboard</a>
-                    <a href="{% url 'updateuser' pk=user.pk %}"><img src="{% static 'assets/ícones/1x/Novas - inativo.png' %}"> Update user</a>
-                    <a href="{% url 'logout' %}"><img src="{% static 'assets/ícones/1x/Surpreenda-me - inativo.png' %}"> Logout</a>
+                    <a href="{% url 'dashboard' username=user %}"><img src="{% static 'assets/ícones/1x/Mais vistas - inativo.png' %}">Reserva de Laboratório</a>
+                    <a href="{% url 'updateuser' pk=user.pk %}"><img src="{% static 'assets/ícones/1x/Novas - inativo.png' %}"> Atualizar user</a>
+                    <a href="{% url 'logout' %}"><img src="{% static 'assets/ícones/1x/Surpreenda-me - inativo.png' %}"> Sair</a>
                 </nav>
             </section>
             <section class="conteudo">
@@ -48,13 +48,7 @@
                     <h1 class="banner__titulo"></h1>
                 </section>
                 <section class="tags">
-                    <p class="tags__titulo">Busque por:</p>
-                    <ul class="tags__lista">
-                        <li class="tags__tag">Eventos</li>
-                        <li class="tags__tag">Provas</li>
-                        <li class="tags__tag">Financeiro</li>
-                        <li class="tags__tag">Ouvidoria</li>
-                    </ul>
+
                 </section>
             
    
